@@ -53,4 +53,4 @@ async def invite_bot(ctx):
     await ctx.send('<https://discord.com/api/oauth2/authorize?client_id=832696265212821514&permissions=162816&scope=bot>')
 
 
-client.run('') # Put your bot token here
+client.run('')
