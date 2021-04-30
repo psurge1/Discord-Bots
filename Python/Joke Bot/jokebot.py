@@ -19,17 +19,13 @@ async def on_ready():
     change_status.start()
     print ("Bot is ready.")
 
+@client.event
+async def on_guild_join(guild):
+    await guild.text_channels[0].send("@channel My name is Jeff. Prepare for cool stuff.")
+
 @tasks.loop(seconds=5)
 async def change_status():
     await client.change_presence(activity=discord.Game(next(status)))
-
-@client.command(aliases=[''])
-async def memes(ctx):
-    for number in range (5):
-        meme_phrase = ''
-        for num in range (40):
-            meme_phrase = '@everyone ' + meme_phrase + random.choice(alphabet)
-        await ctx.send(meme_phrase)
 
 @client.command(aliases=['hi','hello','sup'])
 async def greetings(ctx):
