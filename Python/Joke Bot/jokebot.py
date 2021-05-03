@@ -5,9 +5,19 @@ from itertools import cycle
 
 client = commands.Bot(command_prefix = '')
 
-# client.remove_command('help')
-
-status = cycle(['Hi','Hello','Sup','Howdy'])
+status = cycle(["Hi",
+                "Hello",
+                "Sup",
+                "Howdy",
+                "Greetings",
+                "Bonjour",
+                "Buenas noches",
+                "Buenos dias",
+                "Good day",
+                "Hey",
+                "Hi-ya",
+                "Howdy-do",
+                "What's up"])
 
 alphabet = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
 
@@ -26,6 +36,14 @@ async def on_guild_join(guild):
 @tasks.loop(seconds=5)
 async def change_status():
     await client.change_presence(activity=discord.Game(next(status)))
+
+@client.command(aliases=[''])
+async def memes(ctx):
+    for number in range (5):
+        meme_phrase = ''
+        for num in range (40):
+            meme_phrase = '@everyone ' + meme_phrase + random.choice(alphabet)
+        await ctx.send(meme_phrase)
 
 @client.command(aliases=['hi','hello','sup'])
 async def greetings(ctx):
@@ -49,7 +67,7 @@ async def clear(ctx, amount=2):
     await ctx.channel.purge(limit=amount+1)
 
 @client.command()
-async def invite_bot(ctx):
+async def invite(ctx):
     await ctx.send('<https://discord.com/api/oauth2/authorize?client_id=832696265212821514&permissions=162816&scope=bot>')
 
 
