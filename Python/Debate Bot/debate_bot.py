@@ -73,7 +73,7 @@ list_of_dictionaries = [
 
 @client.event
 async def on_ready():
-    await client.change_presence(status=discord.Status.online, activity=discord.Game('Testing'))
+    await client.change_presence(status=discord.Status.online, activity=discord.Game('Debate'))
 #    change_status.start()
     print ("Bot is ready.")
 
