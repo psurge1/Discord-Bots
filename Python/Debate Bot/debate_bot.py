@@ -10,6 +10,7 @@ client = commands.Bot(command_prefix = 'b!')
 
 status = cycle(['Status 1','Status 2'])
 
+file_name = 'parliamentary_procedure.csv'
 order = "Order"
 motion = "Motion"
 inter = "Interruptable"
