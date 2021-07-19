@@ -16,71 +16,10 @@ fields = []
 rows = []
 
 with open(file_name, 'r') as csvfile:
+    csvreader = csv.reader(csvfile, delimiter=',')
     fields = next(csvreader)
     for row in csvreader:
         rows.append(row)
-
-order = "Order"
-motion = "Motion"
-inter = "Interruptable"
-sec = "Secondable"
-deb = "Debatable"
-ame = "Amenable"
-vot = "Vote"
-yes = "Yes"
-no = "No"
-v_1 = "50% + 1"
-v_2 = "Chair's Discretion"
-v_3 = f'{v_1} or {v_2}'
-v_4 = "2/3 majority"
-list_test = []
-
-precede = "Preceding Motion"
-succeed = "Succeeding Motion"
-list_of_dictionaries = [
-{order:1,motion:"Point of Order",inter:yes,sec:no,
- deb:no,ame:no,vot:no},
-{order:2,motion:"Point of Personal Privilege",inter:yes,sec:no,
- deb:no,ame:no,vot:no},
-{order:3,motion:"Point of Inquiry",inter:yes,sec:no,
- deb:no,ame:no,vot:no},
-{order:4,motion:"Point of Information",inter:no,sec:no,
- deb:no,ame:no,vot:no},
-{order:5,motion:"Right of Reply",inter:no,sec:no,
- deb:no,ame:no,vot:v_2},
-{order:6,motion:"Motion for a Round Robin",inter:no,sec:yes,
- deb:no,ame:no,vot:v_3},
-{order:7,motion:"Motion for a Straw Poll",inter:no,sec:yes,
- deb:no,ame:no,vot:v_3},
-{order:8,motion:"Motion for an Unmoderated Caucus",inter:no,sec:yes,
- deb:no,ame:yes,vot:v_1},
-{order:9,motion:"Motion for a Moderated Caucus",inter:no,sec:yes,
- deb:no,ame:yes,vot:v_1},
-{order:10,motion:"Motion to Table the Topic",inter:no,sec:yes,
- deb:'yes',ame:no,vot:v_4},
-{order:11,motion:"Motion for a Roll Call Vote",inter:no,sec:yes,
- deb:no,ame:no,vot:v_1},
-{order:12,motion:"Motion to Enter Voting Procedure",inter:no,sec:yes,
- deb:'yes',ame:no,vot:v_1},
-{order:13,motion:"Motion to Limit/Extend Debate",inter:no,sec:yes,
- deb:no,ame:no,vot:v_1},
-{order:14,motion:"Motion to Introduce a Draft Resolution",inter:no,sec:yes,
- deb:no,ame:no,vot:v_1},
-{order:15,motion:"Motion to Adopt by Consensus",inter:no,sec:yes,
- deb:no,ame:no,vot:v_1},
-{order:16,motion:"Motion to Introduce an Amendment",inter:no,sec:yes,
- deb:no,ame:no,vot:v_1},
-{order:17,motion:"Motion to Reconsider",inter:no,sec:yes,
- deb:'yes',ame:no,vot:v_1},
-{order:18,motion:"Motion to Open Session",inter:no,sec:yes,
- deb:no,ame:no,vot:v_1},
-{order:19,motion:"Motion to Recess",inter:no,sec:yes,
- deb:no,ame:no,vot:v_1},
-{order:20,motion:"Motion to Adjourn the Meeting",inter:no,sec:yes,
- deb:no,ame:no,vot:v_1},
-{order:21,motion:"Motion to Set the Agenda",inter:no,sec:yes,
- deb:no,ame:no,vot:v_1},
-]
 
 @client.event
 async def on_ready():
