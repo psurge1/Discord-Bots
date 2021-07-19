@@ -11,6 +11,15 @@ client = commands.Bot(command_prefix = 'b!')
 status = cycle(['Status 1','Status 2'])
 
 file_name = 'parliamentary_procedure.csv'
+
+fields = []
+rows = []
+
+with open(file_name, 'r') as csvfile:
+    fields = next(csvreader)
+    for row in csvreader:
+        rows.append(row)
+
 order = "Order"
 motion = "Motion"
 inter = "Interruptable"
