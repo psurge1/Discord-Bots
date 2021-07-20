@@ -14,12 +14,14 @@ file_name = 'parliamentary_procedure.csv'
 
 fields = []
 rows = []
+row_count = 0
 
 with open(file_name, 'r') as csvfile:
     csvreader = csv.reader(csvfile, delimiter=',')
     fields = next(csvreader)
     for row in csvreader:
         rows.append(row)
+        row_count += 1
 
 @client.event
 async def on_ready():
