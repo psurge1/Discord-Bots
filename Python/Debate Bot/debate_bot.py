@@ -62,7 +62,7 @@ async def _hi(ctx):
 @client.command()
 async def clear(ctx, amount=1):
     await ctx.channel.purge(limit=amount+1)
-
+'''
 @client.command()
 async def parlipro(ctx):
     await ctx.send(f'Please wait a few moments \n ---------- \n')
@@ -79,12 +79,12 @@ async def motions(ctx):
     await ctx.send(f'Please wait a few moments \n ---------- \n')
     for m in range(5,21):
         await ctx.send(f'{list_of_dictionaries[m][order]} {list_of_dictionaries[m][motion]}')
-
+'''
 @client.command()
 async def p_order(ctx):
-    for value in list_of_dictionaries[0]:
-        await ctx.send(f'{value}: {list_of_dictionaries[0][value]}')
-
+    for value in range(attributes):
+        await ctx.send(f'{categories[value]}: {motions[0][value]}')
+'''
 @client.command()
 async def p_personalprivilege(ctx):
     for value in list_of_dictionaries[1]:
@@ -186,5 +186,5 @@ async def settheagenda(ctx):
         list_test.append(list_of_dictionaries[20][value])
         await ctx.send(f'{value}: {list_of_dictionaries[20][value]}')
 
-
+'''
 client.run('')
