@@ -12,16 +12,17 @@ status = cycle(['Status 1','Status 2'])
 
 file_name = 'parliamentary_procedure.csv'
 
-fields = []
-rows = []
+categories = []
+motions = []
 row_count = 0
 
 with open(file_name, 'r') as csvfile:
     csvreader = csv.reader(csvfile, delimiter=',')
-    fields = next(csvreader)
+    categories = next(csvreader)
     for row in csvreader:
-        rows.append(row)
+        motions.append(row)
         row_count += 1
+    attributes = len(motions[0])
 
 @client.event
 async def on_ready():
@@ -65,7 +66,7 @@ async def clear(ctx, amount=1):
 @client.command()
 async def parlipro(ctx):
     await ctx.send(f'Please wait a few moments \n ---------- \n')
-    for procedure in range(0,21):
+    for procedure in range(row_count):
         await ctx.send(f'{list_of_dictionaries[procedure][order]} {list_of_dictionaries[procedure][motion]}')
 
 @client.command()
