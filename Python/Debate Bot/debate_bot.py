@@ -31,11 +31,9 @@ async def on_ready():
 #    change_status.start()
     print ("Bot is ready.")
 
-'''
 @tasks.loop(seconds=10)
 async def change_status():
     await client.change_presence(activity=discord.Game(next(status)))
-'''
 
 '''
 @client.command(pass_context=True)
