@@ -68,7 +68,7 @@ async def clear(ctx, amount=2):
 
 @client.command()
 async def invite(ctx):
-    await ctx.send('<https://discord.com/api/oauth2/authorize?client_id=832696265212821514&permissions=162816&scope=bot>')
+    await ctx.send('')
 
 
 client.run('')
