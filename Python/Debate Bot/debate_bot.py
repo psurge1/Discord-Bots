@@ -184,4 +184,8 @@ async def settheagenda(ctx):
     for value in range(attributes):
         await ctx.send(f'{categories[value]}: {motions[20][value]}')
 
+@client.command()
+async def invite(ctx):
+    await ctx.send('')
+
 client.run('')
