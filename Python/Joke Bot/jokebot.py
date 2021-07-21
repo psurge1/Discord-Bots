@@ -31,7 +31,7 @@ async def on_ready():
 
 @client.event
 async def on_guild_join(guild):
-    await guild.text_channels[0].send("@channel My name is Jeff. Prepare for cool stuff.")
+    await guild.text_channels[0].send("")
 
 @tasks.loop(seconds=5)
 async def change_status():
