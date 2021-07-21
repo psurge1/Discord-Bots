@@ -15,6 +15,7 @@ file_name = 'parliamentary_procedure.csv'
 categories = []
 motions = []
 row_count = 0
+points = 5
 
 with open(file_name, 'r') as csvfile:
     csvreader = csv.reader(csvfile, delimiter=',')
@@ -62,129 +63,127 @@ async def _hi(ctx):
 @client.command()
 async def clear(ctx, amount=1):
     await ctx.channel.purge(limit=amount+1)
-'''
+
 @client.command()
 async def parlipro(ctx):
     await ctx.send(f'Please wait a few moments \n ---------- \n')
-    for procedure in range(row_count):
-        await ctx.send(f'{list_of_dictionaries[procedure][order]} {list_of_dictionaries[procedure][motion]}')
+    for procedure in motions:
+        await ctx.send(f'{procedure[0]} {procedure[1]}')
 
-@client.command()
-async def points(ctx):
-    for point in range(0,5):
-        await ctx.send(f'{list_of_dictionaries[point][order]} {list_of_dictionaries[point][motion]}')
+@client.command(aliases=['points'])
+async def point(ctx):
+    for p in range(points):
+        await ctx.send(f'{motions[p][0]} {motions[p][1]}')
 
-@client.command()
-async def motions(ctx):
+@client.command(aliases=['motions'])
+async def motion(ctx):
     await ctx.send(f'Please wait a few moments \n ---------- \n')
-    for m in range(5,21):
-        await ctx.send(f'{list_of_dictionaries[m][order]} {list_of_dictionaries[m][motion]}')
-'''
+    for m in range(points,row_count):
+        await ctx.send(f'{motions[m][0]} {motions[m][1]}')
+
 @client.command()
 async def p_order(ctx):
     for value in range(attributes):
         await ctx.send(f'{categories[value]}: {motions[0][value]}')
-'''
+
 @client.command()
 async def p_personalprivilege(ctx):
-    for value in list_of_dictionaries[1]:
-        await ctx.send(f'{value}: {list_of_dictionaries[1][value]}')
+    for value in range(attributes):
+        await ctx.send(f'{categories[value]}: {motions[1][value]}')
 
 @client.command()
 async def p_inquiry(ctx):
-    for value in list_of_dictionaries[2]:
-        await ctx.send(f'{value}: {list_of_dictionaries[2][value]}')
+    for value in range(attributes):
+        await ctx.send(f'{categories[value]}: {motions[2][value]}')
 
 @client.command()
 async def p_information(ctx):
-    for value in list_of_dictionaries[3]:
-        await ctx.send(f'{value}: {list_of_dictionaries[3][value]}')
+    for value in range(attributes):
+        await ctx.send(f'{categories[value]}: {motions[3][value]}')
 
 @client.command()
 async def rightofreply(ctx):
-    for value in list_of_dictionaries[4]:
-        await ctx.send(f'{value}: {list_of_dictionaries[4][value]}')
+    for value in range(attributes):
+        await ctx.send(f'{categories[value]}: {motions[4][value]}')
 
 @client.command()
 async def roundrobin(ctx):
-    for value in list_of_dictionaries[5]:
-        await ctx.send(f'{value}: {list_of_dictionaries[5][value]}')
+    for value in range(attributes):
+        await ctx.send(f'{categories[value]}: {motions[5][value]}')
 
 @client.command()
 async def strawpoll(ctx):
-    for value in list_of_dictionaries[6]:
-        await ctx.send(f'{value}: {list_of_dictionaries[6][value]}')
+    for value in range(attributes):
+        await ctx.send(f'{categories[value]}: {motions[6][value]}')
 
 @client.command()
 async def unmod(ctx):
-    for value in list_of_dictionaries[7]:
-        await ctx.send(f'{value}: {list_of_dictionaries[7][value]}')
+    for value in range(attributes):
+        await ctx.send(f'{categories[value]}: {motions[7][value]}')
 
 @client.command()
 async def mod(ctx):
-    for value in list_of_dictionaries[8]:
-        await ctx.send(f'{value}: {list_of_dictionaries[8][value]}')
+    for value in range(attributes):
+        await ctx.send(f'{categories[value]}: {motions[8][value]}')
 
 @client.command()
 async def tablethetopic(ctx):
-    for value in list_of_dictionaries[9]:
-        await ctx.send(f'{value}: {list_of_dictionaries[9][value]}')
+    for value in range(attributes):
+        await ctx.send(f'{categories[value]}: {motions[9][value]}')
 
 @client.command()
 async def rollcallvote(ctx):
-    for value in list_of_dictionaries[10]:
-        await ctx.send(f'{value}: {list_of_dictionaries[10][value]}')
+    for value in range(attributes):
+        await ctx.send(f'{categories[value]}: {motions[10][value]}')
 
 @client.command()
 async def entervotingprocedure(ctx):
-    for value in list_of_dictionaries[11]:
-        await ctx.send(f'{value}: {list_of_dictionaries[11][value]}')
+    for value in range(attributes):
+        await ctx.send(f'{categories[value]}: {motions[11][value]}')
 
 @client.command(aliases=['limitdebate','extenddebate'])
 async def limextdebate(ctx):
-    for value in list_of_dictionaries[12]:
-        await ctx.send(f'{value}: {list_of_dictionaries[12][value]}')
+    for value in range(attributes):
+        await ctx.send(f'{categories[value]}: {motions[12][value]}')
 
 @client.command()
 async def introducedraftresolution(ctx):
-    for value in list_of_dictionaries[13]:
-        await ctx.send(f'{value}: {list_of_dictionaries[13][value]}')
+    for value in range(attributes):
+        await ctx.send(f'{categories[value]}: {motions[13][value]}')
 
 @client.command()
 async def adoptbyconcensus(ctx):
-    for value in list_of_dictionaries[14]:
-        await ctx.send(f'{value}: {list_of_dictionaries[14][value]}')
+    for value in range(attributes):
+        await ctx.send(f'{categories[value]}: {motions[14][value]}')
 
 @client.command()
 async def introduceamendment(ctx):
-    for value in list_of_dictionaries[15]:
-        await ctx.send(f'{value}: {list_of_dictionaries[15][value]}')
+    for value in range(attributes):
+        await ctx.send(f'{categories[value]}: {motions[15][value]}')
 
 @client.command()
 async def reconsider(ctx):
-    for value in list_of_dictionaries[16]:
-        await ctx.send(f'{value}: {list_of_dictionaries[16][value]}')
+    for value in range(attributes):
+        await ctx.send(f'{categories[value]}: {motions[16][value]}')
 
 @client.command()
 async def opensession(ctx):
-    for value in list_of_dictionaries[17]:
-        await ctx.send(f'{value}: {list_of_dictionaries[17][value]}')
+    for value in range(attributes):
+        await ctx.send(f'{categories[value]}: {motions[17][value]}')
 
 @client.command()
 async def recess(ctx):
-    for value in list_of_dictionaries[18]:
-        await ctx.send(f'{value}: {list_of_dictionaries[18][value]}')
+    for value in range(attributes):
+        await ctx.send(f'{categories[value]}: {motions[18][value]}')
 
 @client.command()
 async def adjourn(ctx):
-    for value in list_of_dictionaries[19]:
-        await ctx.send(f'{value}: {list_of_dictionaries[19][value]}')
+    for value in range(attributes):
+        await ctx.send(f'{categories[value]}: {motions[19][value]}')
 
 @client.command()
 async def settheagenda(ctx):
-    for value in list_of_dictionaries[20]:
-        list_test.append(list_of_dictionaries[20][value])
-        await ctx.send(f'{value}: {list_of_dictionaries[20][value]}')
+    for value in range(attributes):
+        await ctx.send(f'{categories[value]}: {motions[20][value]}')
 
-'''
 client.run('')
